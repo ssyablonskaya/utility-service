@@ -226,6 +226,7 @@ public class Main {
         Integer acc2Pass = acc2.getPassword();
         LOGGER.debug("Account was registered. Don't forget your password: " + acc2Pass);
 
+        Employee sveta = new Employee("S", "Y", acc);
 
     }
 }
