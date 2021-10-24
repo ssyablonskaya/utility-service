@@ -227,7 +227,6 @@ public class Main {
         LOGGER.debug("Account was registered. Don't forget your password: " + acc2Pass);
 
         Employee sveta = new Employee("S", "Y", acc);
-        Employee sveta2 = new Employee("S", "Y", acc);
         Employee sveta3 = new Employee("S", "Y", acc);
 
     }
