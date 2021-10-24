@@ -227,5 +227,6 @@ public class Main {
         LOGGER.debug("Account was registered. Don't forget your password: " + acc2Pass);
 
         LOGGER.info("WHY ALWAYS ME?");
+        LOGGER.info("ALWAYS ME!");
     }
 }
