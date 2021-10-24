@@ -228,6 +228,7 @@ public class Main {
 
         Employee sveta = new Employee("S", "Y", acc);
         Employee sveta2 = new Employee("S", "Y", acc);
+        Employee sveta3 = new Employee("S", "Y", acc);
 
     }
 }
