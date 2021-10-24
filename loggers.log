@@ -1,0 +1,65 @@
+[2021-10-24T11:15:55,511 INFO ] com.solvd.lesson8.BusinessQuestion - Business-question:
+[2021-10-24T11:15:55,515 DEBUG] com.solvd.lesson8.BusinessQuestion - Zhes can do InstallationOfMeters: true.
+[2021-10-24T11:15:55,515 DEBUG] com.solvd.lesson8.BusinessQuestion - This service is in zhirovka: true.
+[2021-10-24T11:15:55,515 DEBUG] com.solvd.lesson8.BusinessQuestion - InstallationOfMeters will cost 15 rubles. 
+[2021-10-24T11:15:55,515 DEBUG] com.solvd.lesson8.BusinessQuestion - Job will be done in 3 hours. 
+[2021-10-24T11:15:55,515 DEBUG] com.solvd.lesson8.BusinessQuestion - Zhes can do ChangeOfMeters: true.
+[2021-10-24T11:15:55,515 DEBUG] com.solvd.lesson8.BusinessQuestion - This service is in zhirovka: false.
+[2021-10-24T11:15:55,516 DEBUG] com.solvd.lesson8.BusinessQuestion - ChangeOfMeters will cost 11 rubles. 
+[2021-10-24T11:15:55,516 DEBUG] com.solvd.lesson8.BusinessQuestion - Job will be done in 2 hours. 
+[2021-10-24T11:15:55,516 INFO ] com.solvd.lesson8.Main - Positions in the organization:
+[2021-10-24T11:15:55,524 DEBUG] com.solvd.lesson8.Main - Given Rybak's work experience, the salary is 1440.0 rubles.
+[2021-10-24T11:15:55,537 DEBUG] com.solvd.lesson8.organization.service.impl.AccountingServiceImpl - Rybak's birthday bonus with salary this month is 1300.0 rubles.
+[2021-10-24T11:15:55,537 INFO ] com.solvd.lesson8.organization.service.Service - Please, pay for the service.
+[2021-10-24T11:15:55,537 INFO ] com.solvd.lesson8.organization.service.Service - Sorry. The amount of money isn't enough.
+[2021-10-24T11:15:55,537 DEBUG] com.solvd.lesson8.organization.staff.Employee - 1234 rubles will be given to Alexander ASAP.
+[2021-10-24T11:15:55,537 INFO ] com.solvd.lesson8.organization.staff.Employee - You should choose the amount of the bonus.
+[2021-10-24T11:15:55,538 DEBUG] com.solvd.lesson8.organization.staff.Staff - Alexander Rybak is working in the organization for 5 years.
+[2021-10-24T11:15:55,538 DEBUG] com.solvd.lesson8.organization.staff.Employee - Hello, my name is Alexander Rybak. How can I help you?
+[2021-10-24T11:15:55,538 DEBUG] com.solvd.lesson8.organization.staff.Director - Hello, I'm Mark Gilbert, the director of this organization. How can we solve your problems?
+[2021-10-24T11:15:55,539 DEBUG] com.solvd.lesson8.Main - Name: CleanToilets; Price: 12 rubles; Time to do: 2 hours.
+[2021-10-24T11:15:55,540 DEBUG] com.solvd.lesson8.Main - Name: PaintingWalls; Price: 41 rubles; Time to do: 15 hours. The lowest possible temperature outside: -4 c
+[2021-10-24T11:15:55,541 DEBUG] com.solvd.lesson8.Main - Department is working now: true
+[2021-10-24T11:15:55,541 DEBUG] com.solvd.lesson8.Main - Construction material: Paint; Price: 9 rubles; Amount: 10; Now is in progress: true
+[2021-10-24T11:15:55,542 DEBUG] com.solvd.lesson8.organization.staff.Employee - Hello, my name is Max Shtein. How can I help you?
+[2021-10-24T11:15:55,542 DEBUG] com.solvd.lesson8.organization.staff.Director - Hello, I'm Stephan Hoffman, the director of this organization. How can we solve your problems?
+[2021-10-24T11:15:55,542 INFO ] com.solvd.lesson8.Main - The 1st interface:
+[2021-10-24T11:15:55,543 DEBUG] com.solvd.lesson8.organization.staff.Director - Hello, I'm Mark Gilbert, the director of this organization. How can we solve your problems?
+[2021-10-24T11:15:55,543 INFO ] com.solvd.lesson8.Main - The second interface:
+[2021-10-24T11:15:55,543 INFO ] com.solvd.lesson8.organization.staff.Employee - Thoughts: Hmm, maybe it's time to get salary!
+[2021-10-24T11:15:55,543 INFO ] com.solvd.lesson8.organization.staff.Employee - Employee has come to the accounting.
+[2021-10-24T11:15:55,543 DEBUG] com.solvd.lesson8.organization.staff.Employee - Hello, my name is Alexander Rybak. Can I get my salary?
+[2021-10-24T11:15:55,543 INFO ] com.solvd.lesson8.organization.staff.Employee - Sorry, salary will be on the 15th.
+[2021-10-24T11:15:55,543 INFO ] com.solvd.lesson8.organization.staff.Employee - Thanks. Goodbye!
+[2021-10-24T11:15:55,543 INFO ] com.solvd.lesson8.Main - The third interface:
+[2021-10-24T11:15:55,543 DEBUG] com.solvd.lesson8.organization.service.impl.ServiceClassImpl - Department is working now: true
+[2021-10-24T11:15:55,543 INFO ] com.solvd.lesson8.Main - The 4th interface:
+[2021-10-24T11:15:55,544 DEBUG] com.solvd.lesson8.organization.service.impl.AccountingServiceImpl - Rybak's birthday bonus with salary this month is 1300.0 rubles.
+[2021-10-24T11:15:55,544 INFO ] com.solvd.lesson8.Main - The 5th interface:
+[2021-10-24T11:15:55,544 INFO ] com.solvd.lesson8.organization.equipment.Material - The utilizing device was opened.
+[2021-10-24T11:15:55,544 DEBUG] com.solvd.lesson8.organization.equipment.Material - Paint was dumped to the device.
+[2021-10-24T11:15:55,544 INFO ] com.solvd.lesson8.organization.equipment.Material - The device was pushed.
+[2021-10-24T11:15:55,544 INFO ] com.solvd.lesson8.organization.equipment.ConstructionMaterial - Construction material was utilized. The device was closed.
+[2021-10-24T11:15:55,544 ERROR] com.solvd.lesson8.Main - Invalid data. Incorrect year of employment. The organization was founded in 2006.
+[2021-10-24T11:15:55,544 INFO ] com.solvd.lesson8.Main - The end of operation
+[2021-10-24T11:15:55,545 INFO ] com.solvd.lesson8.Main - The try-block
+[2021-10-24T11:15:55,545 DEBUG] com.solvd.lesson8.InternetConnection - Disconnection
+[2021-10-24T11:15:55,545 INFO ] com.solvd.lesson8.Main - The 1st collection:
+[2021-10-24T11:15:55,545 DEBUG] com.solvd.lesson8.Main - [First name: Alexander; Last name: Rybak, First name: Elena; Last name: Rybalka, First name: Peter; Last name: Stone, First name: Max; Last name: Shtein]
+[2021-10-24T11:15:55,545 INFO ] com.solvd.lesson8.Main - The second collection:
+[2021-10-24T11:15:55,545 DEBUG] com.solvd.lesson8.Main - [First name: Mark; Last name: Gilbert, First name: Stephan; Last name: Hoffman]
+[2021-10-24T11:15:55,546 INFO ] com.solvd.lesson8.Main - The third collection:
+[2021-10-24T11:15:55,546 DEBUG] com.solvd.lesson8.Main - [Name: InstallationOfMeters; Price: 15 rubles; Time to do: 3 hours., Name: CleanToilets; Price: 12 rubles; Time to do: 2 hours., Name: ChangeOfMeters; Price: 11 rubles; Time to do: 2 hours., Name: PaintingWalls; Price: 41 rubles; Time to do: 15 hours. The lowest possible temperature outside: -4 c]
+[2021-10-24T11:15:55,546 INFO ] com.solvd.lesson8.Main - The 4th collection: Organization positions from the lowest salary: 
+[2021-10-24T11:15:55,546 DEBUG] com.solvd.lesson8.Main - [Position name: Plumber; Salary = 1200, Position name: Repairer; Salary = 1300, Position name: Accountant; Salary = 1400]
+[2021-10-24T11:15:55,546 INFO ] com.solvd.lesson8.Main - The 5th collection:
+[2021-10-24T11:15:55,546 DEBUG] com.solvd.lesson8.Main - [Construction material: Paint; Price: 9 rubles; Amount: 10; Now is in progress: true, Construction material: Brick; Price: 2 rubles; Amount: 100; Now is in progress: false]
+[2021-10-24T11:15:55,546 INFO ] com.solvd.lesson8.Main - HashMap:
+[2021-10-24T11:15:55,547 DEBUG] com.solvd.lesson8.Main - {37=Name of the document: Water payment №273; Date of payment: 2021-10-06T02:10; Signed by: First name: Mark; Last name: Gilbert, 117=Name of the document: Renovation work, apartments №54; Date of payment: 2021-08-06T02:10; Signed by: First name: Mark; Last name: Gilbert}
+[2021-10-24T11:15:55,547 DEBUG] com.solvd.lesson8.organization.OrgCatalog - Position name: Plumber; Salary = 1200
+[2021-10-24T11:15:55,548 DEBUG] com.solvd.lesson8.organization.OrgCatalog - Position name: Repairer; Salary = 1300
+[2021-10-24T11:15:55,548 DEBUG] com.solvd.lesson8.organization.OrgCatalog - Position name: Accountant; Salary = 1400
+[2021-10-24T11:15:55,549 DEBUG] com.solvd.lesson8.Main - Cost of chosen item = 200 rubles.
+[2021-10-24T11:15:55,549 DEBUG] com.solvd.lesson8.Main - Account was registered. Don't forget your password: 123qwerty123
+[2021-10-24T11:15:55,549 DEBUG] com.solvd.lesson8.Main - Account was registered. Don't forget your password: 123
+[2021-10-24T11:15:55,549 INFO ] com.solvd.lesson8.Main - Hi, guys!
