@@ -2,31 +2,32 @@ package com.solvd.utilityservice.organization.structure;
 
 public class Position implements Comparable<Position> {
 
-    private String name;
+    private PositionName positionName;
+    //private String name;
     private int salary;
 
-    public Position(String name, int salary) {
-        this.name = name;
+    public Position(PositionName positionName, int salary) {
+        this.positionName = positionName;
         this.salary = salary;
     }
 
     public void print() {
-        System.out.println(name + ". Salary: " + salary + " rubles.");
+        System.out.println(positionName + ". Salary: " + salary + " rubles.");
     }
 
     @Override
     public String toString() {
-        return "Position name: " + name +
+        return "Position name: " + positionName +
                 "; Salary = " + salary;
     }
 
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
+    }*/
 
     public int getSalary() {
         return salary;
@@ -37,6 +38,14 @@ public class Position implements Comparable<Position> {
             throw new InvalidSalaryException("Salary is invalid.");
         }
         this.salary = salary;
+    }
+
+    public PositionName getPositionName() {
+        return positionName;
+    }
+
+    public void setPositionName(PositionName positionName) {
+        this.positionName = positionName;
     }
 
     @Override

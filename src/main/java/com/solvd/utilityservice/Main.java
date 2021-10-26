@@ -15,6 +15,7 @@ import com.solvd.utilityservice.organization.service.impl.ServiceClassImpl;
 import com.solvd.utilityservice.organization.staff.*;
 import com.solvd.utilityservice.organization.structure.Organization;
 import com.solvd.utilityservice.organization.structure.Position;
+import com.solvd.utilityservice.organization.structure.PositionName;
 import com.solvd.utilityservice.organization.structure.Profsouz;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,9 +46,9 @@ public class Main {
         System.out.println();
 
         LOGGER.info("Positions in the organization:");
-        Position acc = new Position("Accountant", 1400);
-        Position rep = new Position("Repairer", 1300);
-        Position pl = new Position("Plumber", 1200);
+        Position acc = new Position(PositionName.ACCOUNTANT, 1400);
+        Position rep = new Position(PositionName.REPAIRER, 1300);
+        Position pl = new Position(PositionName.PLUMBER, 1200);
         Set<Position> orgPositions = new TreeSet<>();
         orgPositions.add(acc);
         orgPositions.add(rep);
@@ -55,6 +56,7 @@ public class Main {
         acc.print();
         rep.print();
         pl.print();
+        //LOGGER.debug(Arrays.toString(PositionName.values()));
         System.out.println();
 
         Employee alex = new Employee("Alexander", "Rybak", pl);
