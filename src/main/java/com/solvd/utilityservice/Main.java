@@ -227,6 +227,13 @@ public class Main {
         AccountRegistration<Integer> acc2 = new AccountRegistration(123);
         Integer acc2Pass = acc2.getPassword();
         LOGGER.debug("Account was registered. Don't forget your password: " + acc2Pass);
+        System.out.println();
+
+        //lesson-9
+        alex.setFoodMenu(FoodMenu.MENU1);
+        alex.chooseLunch();
+        System.out.println();
+
 
     }
 }
