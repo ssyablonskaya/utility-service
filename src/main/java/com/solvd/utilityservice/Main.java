@@ -13,10 +13,7 @@ import com.solvd.utilityservice.organization.service.Service;
 import com.solvd.utilityservice.organization.service.impl.AccountingServiceImpl;
 import com.solvd.utilityservice.organization.service.impl.ServiceClassImpl;
 import com.solvd.utilityservice.organization.staff.*;
-import com.solvd.utilityservice.organization.structure.Organization;
-import com.solvd.utilityservice.organization.structure.Position;
-import com.solvd.utilityservice.organization.structure.PositionName;
-import com.solvd.utilityservice.organization.structure.Profsouz;
+import com.solvd.utilityservice.organization.structure.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -233,6 +230,12 @@ public class Main {
         alex.setFoodMenu(FoodMenu.MENU1);
         alex.chooseLunch();
         System.out.println();
+
+        Building instance = Building.getInstance("Minsk, Vaneeva street, 32");
+        LOGGER.debug(instance);
+        LOGGER.debug(instance.getAddress());
+        System.out.println();
+
 
 
     }
