@@ -2,7 +2,6 @@ package com.solvd.utilityservice.organization.staff;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import sun.rmi.runtime.Log;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -14,11 +13,16 @@ public abstract class Staff implements Speakable, Payable {
     private String firstName;
     private String lastName;
     private int yearOfEmployment;
+    private TypeOfEmployment typeOfEmployment;
     private FoodMenu foodMenu;
 
     public Staff(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public enum TypeOfEmployment {
+        FULL_TIME, PART_TIME, SEASONAL
     }
 
     @Override
@@ -37,7 +41,7 @@ public abstract class Staff implements Speakable, Payable {
     }
 
     public void chooseLunch() {
-        switch(foodMenu) {
+        switch (foodMenu) {
             case MENU1:
                 LOGGER.info("Fried chicken, potatoes, juice: 560 kcal");
                 break;
@@ -117,4 +121,13 @@ public abstract class Staff implements Speakable, Payable {
     public void setFoodMenu(FoodMenu foodMenu) {
         this.foodMenu = foodMenu;
     }
+
+    public TypeOfEmployment getTypeOfEmployment() {
+        return typeOfEmployment;
+    }
+
+    public void setTypeOfEmployment(TypeOfEmployment typeOfEmployment) {
+        this.typeOfEmployment = typeOfEmployment;
+    }
+
 }

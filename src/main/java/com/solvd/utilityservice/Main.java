@@ -236,7 +236,8 @@ public class Main {
         LOGGER.debug(instance.getAddress());
         System.out.println();
 
-
+        alex.setTypeOfEmployment(Staff.TypeOfEmployment.FULL_TIME);
+        LOGGER.debug(alex.getFirstName() + "'s type of employment is " + alex.getTypeOfEmployment());
 
     }
 }
