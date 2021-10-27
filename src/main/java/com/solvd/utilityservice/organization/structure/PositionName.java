@@ -8,13 +8,8 @@ public enum PositionName {
 
     private final String title;
 
-    PositionName (String title) {
+    PositionName(String title) {
         this.title = title;
-    }
-
-    @Override
-    public String toString() {
-        return "Position name: " + title + "; ";
     }
 
     public String getTitle() {

@@ -17,6 +17,7 @@ import com.solvd.utilityservice.organization.structure.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -28,7 +29,7 @@ public class Main {
 
     public static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Organization zhes = new Organization("Housing maintenance service №1");
         Service service2 = new Service("InstallationOfMeters", 15, 3, true, true);
         Service service3 = new Service("ChangeOfMeters", 11, 2, true, false);
@@ -238,6 +239,15 @@ public class Main {
 
         alex.setTypeOfEmployment(Staff.TypeOfEmployment.FULL_TIME);
         LOGGER.debug(alex.getFirstName() + "'s type of employment is " + alex.getTypeOfEmployment());
+        System.out.println();
+
+        acc.doGoodWork();
+        rep.doGoodWork();
+        System.out.println();
+
+        ReadNCount readNCount = new ReadNCount();
+        readNCount.readNCount();
+        System.out.println();
 
     }
 }

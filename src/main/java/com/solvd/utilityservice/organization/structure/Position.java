@@ -1,9 +1,13 @@
 package com.solvd.utilityservice.organization.structure;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Position implements Comparable<Position> {
 
+    public static final Logger LOGGER = LogManager.getLogger(Position.class);
+
     private PositionName positionName;
-    //private String name;
     private int salary;
 
     public Position(PositionName positionName, int salary) {
@@ -15,19 +19,19 @@ public class Position implements Comparable<Position> {
         System.out.println(positionName + ". Salary: " + salary + " rubles.");
     }
 
+    public void doGoodWork() {
+        if (positionName.getTitle() == PositionName.ACCOUNTANT.getTitle()) {
+            LOGGER.info("You're doing pretty good brain work. Go ahead!");
+        } else {
+            LOGGER.info("You're doing pretty good physical work. Go ahead!");
+        }
+    }
+
     @Override
     public String toString() {
         return "Position name: " + positionName +
                 "; Salary = " + salary;
     }
-
-    /*public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }*/
 
     public int getSalary() {
         return salary;

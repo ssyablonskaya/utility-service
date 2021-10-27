@@ -8,7 +8,7 @@ public enum FoodMenu {
 
     private final String title;
 
-    FoodMenu (String title) {
+    FoodMenu(String title) {
         this.title = title;
     }
 
