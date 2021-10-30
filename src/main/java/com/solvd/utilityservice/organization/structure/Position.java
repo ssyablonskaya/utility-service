@@ -20,7 +20,7 @@ public class Position implements Comparable<Position> {
     }
 
     public void doGoodWork() {
-        if (positionName.getTitle() == PositionName.ACCOUNTANT.getTitle()) {
+        if (PositionName.ACCOUNTANT.equals(positionName)) {
             LOGGER.info("You're doing pretty good brain work. Go ahead!");
         } else {
             LOGGER.info("You're doing pretty good physical work. Go ahead!");
