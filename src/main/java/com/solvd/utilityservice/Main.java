@@ -20,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.function.Consumer;
 
 public class Main {
 
@@ -245,9 +246,18 @@ public class Main {
         rep.doGoodWork();
         System.out.println();
 
-        ReadNCount readNCount = new ReadNCount();
+        /*ReadNCount readNCount = new ReadNCount();
         readNCount.readNCount();
+        System.out.println();*/
+
+
+        //lesson-10
+        Consumer<String> signDocument = doc -> LOGGER.info("The document was signed");
+        head1.signAllDocuments(signDocument);
         System.out.println();
+
+
+
 
     }
 }

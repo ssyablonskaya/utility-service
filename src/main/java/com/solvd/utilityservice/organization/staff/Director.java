@@ -3,12 +3,20 @@ package com.solvd.utilityservice.organization.staff;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.function.Consumer;
+
 public class Director extends Staff implements Speakable, Payable {
 
     public static final Logger LOGGER = LogManager.getLogger(Director.class);
 
     public Director(String firstName, String lastName) {
         super(firstName, lastName);
+    }
+
+    public void signAllDocuments(Consumer<String> consumer) {
+        LOGGER.info("Signing of documents:");
+        consumer.accept("Fire regulations in the building");
+
     }
 
     /**

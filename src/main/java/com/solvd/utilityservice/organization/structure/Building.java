@@ -11,7 +11,7 @@ public class Building {
 
     public static Building getInstance(String address) {
         if (instance == null) {
-            instance = new Building("Minsk, Vaneeva street, 32");
+            instance = new Building(address);
         }
         return instance;
     }
