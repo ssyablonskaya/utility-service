@@ -14,13 +14,11 @@ public class BusinessQuestion {
 
     public void print(Set<Service> services) {
         LOGGER.info("Business-question:");
-        for (Service element : services) {
-            System.out.println();
-            LOGGER.debug("Zhes can do " + element.getName() + ": " + element.isCanZhesDoJob() + ".");
-            LOGGER.debug("This service is in zhirovka: " + element.isInZhirovka() + ".");
-            LOGGER.debug(element.getName() + " will cost " + element.getPrice() + " rubles. ");
-            LOGGER.debug("Job will be done in " + element.getDoTime() + " hours. ");
-        }
+        services.stream()
+                .forEach(element -> LOGGER.debug("\nZhes can do " + element.getName() + ": " + element.isCanZhesDoJob()
+                        + ".\nThis service is in zhirovka: " + element.isInZhirovka() + ".\n"
+                        + element.getName() + " will cost " + element.getPrice() + " rubles."
+                        + "\nJob will be done in " + element.getDoTime() + " hours."));
 
     }
 

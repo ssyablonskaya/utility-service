@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -61,12 +63,12 @@ public class Main {
         Employee alex = new Employee("Alexander", "Rybak", pl);
         alex.setDob(LocalDateTime.of(1996, 10, 9, 0, 0));
         alex.setExperience(6);
-        Employee lena = new Employee("Elena", "Rybalka", acc);
-        lena.setDob(LocalDateTime.of(1996, 10, 3, 0, 0));
-        lena.setExperience(8);
+        Employee alena = new Employee("Alena", "Rybalka", acc);
+        alena.setDob(LocalDateTime.of(1996, 10, 3, 0, 0));
+        alena.setExperience(8);
         List<Employee> orgEmployees = new ArrayList<>();
         orgEmployees.add(alex);
-        orgEmployees.add(lena);
+        orgEmployees.add(alena);
         zhes.setEmployee(orgEmployees);
         AccountingServiceImpl accounting = new AccountingServiceImpl();
         accounting.setEmployees(orgEmployees);
@@ -256,8 +258,37 @@ public class Main {
         head1.signAllDocuments(signDocument);
         System.out.println();
 
+        Optional<String> firstExpMore5 = orgEmployees.stream()
+                .filter(employee -> employee.getExperience() > 5)
+                .map(employee -> employee.getExperience() + " years of " + employee.getLastName() + "'s experience")
+                .findFirst();
+        LOGGER.info("First when experience more than 5 years is "
+                + firstExpMore5.orElseThrow(() -> new ExperienceException("No information about experience")));
+        System.out.println();
 
+        orgEmployees.stream()
+                .peek((employee) -> LOGGER.debug(employee.getLastName() + " ♥ "))
+                .collect(Collectors.toList());
+        System.out.println();
 
+        int finalAmount = orgMaterials.stream()
+                .flatMapToInt(material -> IntStream.of(material.getAmount()))
+                .sum();
+        LOGGER.info("Final amount of all materials is " + finalAmount + " pieces.");
+        System.out.println();
+
+        Collection<String> collection = Arrays.asList();
+        String dataPosition = collection.stream().findFirst().orElse("empty collection");
+        LOGGER.debug(dataPosition);
+        System.out.println();
+
+        Optional<?> empl = orgEmployees.stream()
+                .filter(employee -> employee.getFirstName().startsWith("A"))
+                .filter(employee -> employee.getLastName().startsWith("R"))
+                .skip(1)
+                .findFirst();
+        LOGGER.debug(empl);
+        System.out.println();
 
     }
 }
