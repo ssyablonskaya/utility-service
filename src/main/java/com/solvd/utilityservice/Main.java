@@ -258,12 +258,12 @@ public class Main {
         head1.signAllDocuments(signDocument);
         System.out.println();
 
-        Optional<String> firstExpMore5 = orgEmployees.stream()
+        String firstExpMore5 = orgEmployees.stream()
                 .filter(employee -> employee.getExperience() > 5)
                 .map(employee -> employee.getExperience() + " years of " + employee.getLastName() + "'s experience")
-                .findFirst();
-        LOGGER.info("First when experience more than 5 years is "
-                + firstExpMore5.orElseThrow(() -> new ExperienceException("No information about experience")));
+                .findFirst()
+                .orElseThrow(() -> new ExperienceException("No information about experience"));
+        LOGGER.debug("First when experience more than 5 years is " + firstExpMore5);
         System.out.println();
 
         orgEmployees.stream()

@@ -14,7 +14,7 @@ public class BusinessQuestion {
 
     public void print(Set<Service> services) {
         LOGGER.info("Business-question:");
-        services.stream()
+        services
                 .forEach(element -> LOGGER.debug("\nZhes can do " + element.getName() + ": " + element.isCanZhesDoJob()
                         + ".\nThis service is in zhirovka: " + element.isInZhirovka() + ".\n"
                         + element.getName() + " will cost " + element.getPrice() + " rubles."
