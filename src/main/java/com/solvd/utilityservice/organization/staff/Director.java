@@ -9,6 +9,8 @@ public class Director extends Staff implements Speakable, Payable {
 
     public static final Logger LOGGER = LogManager.getLogger(Director.class);
 
+    private String sex;
+
     public Director(String firstName, String lastName) {
         super(firstName, lastName);
     }
@@ -59,6 +61,14 @@ public class Director extends Staff implements Speakable, Payable {
     @Override
     public void sayGoodbye() {
         LOGGER.info("Thanks. Goodbye!");
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
 }

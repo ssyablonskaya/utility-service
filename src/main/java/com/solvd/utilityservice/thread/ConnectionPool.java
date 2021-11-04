@@ -16,9 +16,10 @@ public class ConnectionPool {
     private static Integer maxConnectionNumber;
 
     private ConnectionPool(Integer maxConnectionNumber) {
-        this.maxConnectionNumber = maxConnectionNumber;
     }
 
+    //synchronised i volatile nado
+    // лейзи инициализацию конекшенов
     public static ConnectionPool getInstance(Integer maxConnectionNumber) {
         if (instance == null) {
             synchronized (ConnectionPool.class) {

@@ -12,7 +12,7 @@ public class MainClass {
     public static void main(String[] args) {
         ConnectionPool connectionPool = ConnectionPool.getInstance(5);
 
-        IntStream.range(0, 10)
+        IntStream.range(0, 100)
                 .boxed()
                 .forEach(index -> {
                     Thread thread = new MyThread(connectionPool);

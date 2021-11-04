@@ -18,6 +18,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Consumer;
@@ -289,6 +292,27 @@ public class Main {
                 .findFirst();
         LOGGER.debug(empl);
         System.out.println();
+
+        //trying reflection
+        Director newHeadRef = null;
+        try {
+            Class<?> myDirClass = Class.forName("com.solvd.utilityservice.organization.staff.Director");
+            Class[] typesOfParams = {String.class, String.class}; //??
+            newHeadRef = (Director) myDirClass.getConstructor(typesOfParams).newInstance("Head's firstName", "Head's lastName");
+            Field dirSex = myDirClass.getDeclaredField("sex");
+            dirSex.setAccessible(true);
+            dirSex.set(newHeadRef, "male");
+            LOGGER.debug(newHeadRef + "; Sex: " + newHeadRef.getSex());
+            Method dirMeetClient = myDirClass.getDeclaredMethod("meetClient");
+            dirMeetClient.setAccessible(true);
+            dirMeetClient.invoke(newHeadRef);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                NoSuchMethodException | InvocationTargetException | NoSuchFieldException exc) {
+            exc.printStackTrace();
+        }
+        System.out.println();
+
+
 
     }
 }
