@@ -10,7 +10,7 @@ public class Connection {
     public void createMethod() {
         LOGGER.info("I've created this method");
         try {
-            Thread.sleep(1234);
+            Thread.sleep(555);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -19,7 +19,7 @@ public class Connection {
     public void readMethod() {
         LOGGER.info("I've read this method");
         try {
-            Thread.sleep(1234);
+            Thread.sleep(555);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -28,7 +28,7 @@ public class Connection {
     public void updateMethod() {
         LOGGER.info("I've updated this method");
         try {
-            Thread.sleep(1234);
+            Thread.sleep(555);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -37,7 +37,7 @@ public class Connection {
     public void deleteMethod() {
         LOGGER.info("I've deleted this method");
         try {
-            Thread.sleep(1234);
+            Thread.sleep(555);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
