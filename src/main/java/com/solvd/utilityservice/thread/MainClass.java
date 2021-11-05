@@ -14,19 +14,17 @@ public class MainClass {
 
     public static void main(String[] args) {
         ConnectionPool connectionPool = ConnectionPool.getInstance(5);
-
-/*        IntStream.range(0, 100)
+        IntStream.range(0, 100)
                 .boxed()
                 .forEach(index -> {
                     Thread thread = new MyThread(connectionPool);
                     thread.start();
                     try {
-                        Thread.sleep(345);
+                        Thread.sleep(555);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                });*/
-
+                });
 
         // executor
         ExecutorService executorService = Executors.newFixedThreadPool(5);
@@ -39,5 +37,4 @@ public class MainClass {
 
         executorService.shutdown();
     }
-
 }

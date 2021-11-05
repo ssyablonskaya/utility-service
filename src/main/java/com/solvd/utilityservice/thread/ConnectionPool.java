@@ -18,8 +18,6 @@ public class ConnectionPool {
     private ConnectionPool(Integer maxConnectionNumber) {
     }
 
-    //synchronised i volatile nado
-    // лейзи инициализацию конекшенов
     public static ConnectionPool getInstance(Integer maxConnectionNumber) {
         if (instance == null) {
             synchronized (ConnectionPool.class) {
@@ -43,7 +41,7 @@ public class ConnectionPool {
         }
     }
 
-    public void releaseConnection(Connection connection) {
+    public synchronized void releaseConnection(Connection connection) {
         connections.add(connection);
     }
 }
