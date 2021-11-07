@@ -13,14 +13,19 @@ import com.solvd.utilityservice.organization.service.Service;
 import com.solvd.utilityservice.organization.service.impl.AccountingServiceImpl;
 import com.solvd.utilityservice.organization.service.impl.ServiceClassImpl;
 import com.solvd.utilityservice.organization.staff.*;
-import com.solvd.utilityservice.organization.structure.Organization;
-import com.solvd.utilityservice.organization.structure.Position;
-import com.solvd.utilityservice.organization.structure.Profsouz;
+import com.solvd.utilityservice.organization.structure.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -30,7 +35,7 @@ public class Main {
 
     public static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Organization zhes = new Organization("Housing maintenance service №1");
         Service service2 = new Service("InstallationOfMeters", 15, 3, true, true);
         Service service3 = new Service("ChangeOfMeters", 11, 2, true, false);
@@ -45,9 +50,9 @@ public class Main {
         System.out.println();
 
         LOGGER.info("Positions in the organization:");
-        Position acc = new Position("Accountant", 1400);
-        Position rep = new Position("Repairer", 1300);
-        Position pl = new Position("Plumber", 1200);
+        Position acc = new Position(PositionName.ACCOUNTANT, 1400);
+        Position rep = new Position(PositionName.REPAIRER, 1300);
+        Position pl = new Position(PositionName.PLUMBER, 1200);
         Set<Position> orgPositions = new TreeSet<>();
         orgPositions.add(acc);
         orgPositions.add(rep);
@@ -55,17 +60,18 @@ public class Main {
         acc.print();
         rep.print();
         pl.print();
+        //LOGGER.debug(Arrays.toString(PositionName.values()));
         System.out.println();
 
         Employee alex = new Employee("Alexander", "Rybak", pl);
         alex.setDob(LocalDateTime.of(1996, 10, 9, 0, 0));
         alex.setExperience(6);
-        Employee lena = new Employee("Elena", "Rybalka", acc);
-        lena.setDob(LocalDateTime.of(1996, 10, 3, 0, 0));
-        lena.setExperience(8);
+        Employee alena = new Employee("Alena", "Rybalka", acc);
+        alena.setDob(LocalDateTime.of(1996, 10, 3, 0, 0));
+        alena.setExperience(8);
         List<Employee> orgEmployees = new ArrayList<>();
         orgEmployees.add(alex);
-        orgEmployees.add(lena);
+        orgEmployees.add(alena);
         zhes.setEmployee(orgEmployees);
         AccountingServiceImpl accounting = new AccountingServiceImpl();
         accounting.setEmployees(orgEmployees);
@@ -225,7 +231,88 @@ public class Main {
         AccountRegistration<Integer> acc2 = new AccountRegistration(123);
         Integer acc2Pass = acc2.getPassword();
         LOGGER.debug("Account was registered. Don't forget your password: " + acc2Pass);
+        System.out.println();
 
-        LOGGER.info("ALWAYS ME!");
+        //lesson-9
+        alex.setFoodMenu(FoodMenu.MENU1);
+        alex.chooseLunch();
+        System.out.println();
+
+        Building instance = Building.getInstance("Minsk, Vaneeva street, 32");
+        LOGGER.debug(instance);
+        LOGGER.debug(instance.getAddress());
+        System.out.println();
+
+        alex.setTypeOfEmployment(Staff.TypeOfEmployment.FULL_TIME);
+        LOGGER.debug(alex.getFirstName() + "'s type of employment is " + alex.getTypeOfEmployment());
+        System.out.println();
+
+        acc.doGoodWork();
+        rep.doGoodWork();
+        System.out.println();
+
+        /*ReadNCount readNCount = new ReadNCount();
+        readNCount.readNCount();
+        System.out.println();*/
+
+
+        //lesson-10
+        Consumer<String> signDocument = doc -> LOGGER.info("The document was signed");
+        head1.signAllDocuments(signDocument);
+        System.out.println();
+
+        String firstExpMore5 = orgEmployees.stream()
+                .filter(employee -> employee.getExperience() > 5)
+                .map(employee -> employee.getExperience() + " years of " + employee.getLastName() + "'s experience")
+                .findFirst()
+                .orElseThrow(() -> new ExperienceException("No information about experience"));
+        LOGGER.debug("First when experience more than 5 years is " + firstExpMore5);
+        System.out.println();
+
+        orgEmployees.stream()
+                .peek((employee) -> LOGGER.debug(employee.getLastName() + " ♥ "))
+                .collect(Collectors.toList());
+        System.out.println();
+
+        int finalAmount = orgMaterials.stream()
+                .flatMapToInt(material -> IntStream.of(material.getAmount()))
+                .sum();
+        LOGGER.info("Final amount of all materials is " + finalAmount + " pieces.");
+        System.out.println();
+
+        Collection<String> collection = Arrays.asList();
+        String dataPosition = collection.stream().findFirst().orElse("empty collection");
+        LOGGER.debug(dataPosition);
+        System.out.println();
+
+        Optional<?> empl = orgEmployees.stream()
+                .filter(employee -> employee.getFirstName().startsWith("A"))
+                .filter(employee -> employee.getLastName().startsWith("R"))
+                .skip(1)
+                .findFirst();
+        LOGGER.debug(empl);
+        System.out.println();
+
+        //trying reflection
+        Director newHeadRef = null;
+        try {
+            Class<?> myDirClass = Class.forName("com.solvd.utilityservice.organization.staff.Director");
+            Class[] typesOfParams = {String.class, String.class}; //??
+            newHeadRef = (Director) myDirClass.getConstructor(typesOfParams).newInstance("Head's firstName", "Head's lastName");
+            Field dirSex = myDirClass.getDeclaredField("sex");
+            dirSex.setAccessible(true);
+            dirSex.set(newHeadRef, "male");
+            LOGGER.debug(newHeadRef + "; Sex: " + newHeadRef.getSex());
+            Method dirMeetClient = myDirClass.getDeclaredMethod("meetClient");
+            dirMeetClient.setAccessible(true);
+            dirMeetClient.invoke(newHeadRef);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                NoSuchMethodException | InvocationTargetException | NoSuchFieldException exc) {
+            exc.printStackTrace();
+        }
+        System.out.println();
+
+
+
     }
 }

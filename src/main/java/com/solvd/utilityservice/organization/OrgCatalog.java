@@ -15,9 +15,8 @@ public class OrgCatalog<E> {
     private Collection<E> catalogs;
 
     public void printCatalog(Collection<E> catalogs) {
-        for (E item : catalogs) {
-            LOGGER.debug(item);
-        }
+        catalogs.forEach(item -> LOGGER.debug(item));
+
     }
 
     public Collection<E> getCatalogs() {

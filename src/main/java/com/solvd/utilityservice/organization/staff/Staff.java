@@ -13,10 +13,16 @@ public abstract class Staff implements Speakable, Payable {
     private String firstName;
     private String lastName;
     private int yearOfEmployment;
+    private TypeOfEmployment typeOfEmployment;
+    private FoodMenu foodMenu;
 
     public Staff(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public enum TypeOfEmployment {
+        FULL_TIME, PART_TIME, SEASONAL
     }
 
     @Override
@@ -32,6 +38,23 @@ public abstract class Staff implements Speakable, Payable {
         LocalDateTime dateNow = LocalDateTime.now();
         int years = dateNow.getYear() - yearOfEmployment;
         LOGGER.debug(firstName + " " + lastName + " is working in the organization for " + years + " years.");
+    }
+
+    public void chooseLunch() {
+        switch (foodMenu) {
+            case MENU1:
+                LOGGER.info("Fried chicken, potatoes, juice: 560 kcal");
+                break;
+            case MENU2:
+                LOGGER.info("Borsch, spaghetti, juice: 630 kcal");
+                break;
+            case MENU3:
+                LOGGER.info("Pork cutlet, vegetables, lemonade: 490 kcal");
+                break;
+            default:
+                LOGGER.info("No info");
+                break;
+        }
     }
 
     /**
@@ -90,4 +113,21 @@ public abstract class Staff implements Speakable, Payable {
         this.yearOfEmployment = yearOfEmployment;
 
     }
+
+    public FoodMenu getFoodMenu() {
+        return foodMenu;
+    }
+
+    public void setFoodMenu(FoodMenu foodMenu) {
+        this.foodMenu = foodMenu;
+    }
+
+    public TypeOfEmployment getTypeOfEmployment() {
+        return typeOfEmployment;
+    }
+
+    public void setTypeOfEmployment(TypeOfEmployment typeOfEmployment) {
+        this.typeOfEmployment = typeOfEmployment;
+    }
+
 }
